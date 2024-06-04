@@ -32,9 +32,9 @@ jobs:
           mkdir ~/bin/
           mv kubectl ~/bin/
 
-      - name: Configure kubectl (replace with your actual configuration)
-        run: |
-          echo "YOUR_KUBECTL_CONFIG" | base64 -d > ~/.kube/config
+      #- name: Configure kubectl (replace with your actual configuration)
+        #run: |
+          #echo "YOUR_KUBECTL_CONFIG" | base64 -d > ~/.kube/config
 
       - name: Deploy the application (replace with your deployment manifest)
         run: kubectl apply -f deployment.yaml
