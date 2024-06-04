@@ -32,4 +32,4 @@ jobs:
           kubernetes version: v1.25.5  # Replace with desired version
 
       - name: Deploy the application (replace with your deployment manifest)
-        run: kubectl apply -f deployment.yaml -f service.yaml
+        run: kubectl apply -f deployment.yaml -f service.yaml -f ingress.yaml
