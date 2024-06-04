@@ -25,16 +25,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Use kubectl (install if missing)
-        run: |
-          curl -LO https://dl.k8s.io/release/v1.24.0/bin/linux/amd64/kubectl
-          chmod +x kubectl
-          mkdir ~/bin/
-          mv kubectl ~/bin/
-
-      #- name: Configure kubectl (replace with your actual configuration)
-        #run: |
-          #echo "YOUR_KUBECTL_CONFIG" | base64 -d > ~/.kube/config
+      - name: Setup Minikube
+        uses: manusa/actions-setup-minikube@v2
+        with:
+          minikube version: v1.29.2  # Replace with desired version
+          kubernetes version: v1.25.5  # Replace with desired version
 
       - name: Deploy the application (replace with your deployment manifest)
         run: kubectl apply -f deployment.yaml
