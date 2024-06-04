@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wisecow-deployment
+spec:
+  replicas: 1  # Adjust the number of replicas as needed
+  selector:
+    matchLabels:
+      app: wisecow
+  template:
+    metadata:
+      labels:
+        app: wisecow
+    spec:
+      containers:
+      - name: wisecow
+        image: arvindpatil1985/wisecow_app:0.0.1  # Replace with your image location
+        ports:
+        - containerPort: 4499
+          #command: ["/bin/bash", "./wisecow.sh"]
+          #env:
+          # - name: PATH
+          # value: /usr/games:$PATH  # Optional: Set environment variable if needed
