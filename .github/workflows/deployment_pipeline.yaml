@@ -31,13 +31,8 @@ jobs:
           kubernetes version: v1.25.5  # Replace with desired version
 
       - name: Deploy the application (replace with your deployment manifest)
-        run: kubectl apply -f deployment.yaml -f service.yaml -f ingress.yaml
-
-  test-application:
-    runs-on: ubuntu-latest
-    needs: deploy-to-kubernetes
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Test the application
-        run: curl -vvv http://localhost:4499
+        run: |
+              kubectl apply -f deployment.yaml -f service.yaml -f ingress.yaml
+              minikube tunnel
+              curl -vvv http://localhost:4499
+              |
