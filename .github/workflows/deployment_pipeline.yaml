@@ -8,7 +8,7 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Login to Docker Hub
         run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
@@ -22,12 +22,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-and-push
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup Minikube
         uses: medyagh/setup-minikube@latest
         with:
-          minikube version: v1.29.2
+          minikube version: v1.33.1
           kubernetes version: v1.25.5
 
       - name: Deploy the application (replace with your deployment manifest)
