@@ -10,9 +10,6 @@ WORKDIR /app
 # Copy the application code
 COPY ./wisecow.sh .
 
-# Update the working directory
-WORKDIR /app/wisecow
-
 # Install dependencies
 RUN apt-get update
 RUN apt-get install fortunes fortune-mod cowsay netcat-openbsd coreutils -y
