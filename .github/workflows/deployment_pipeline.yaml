@@ -27,7 +27,7 @@ jobs:
       - name: Setup Minikube
         uses: medyagh/setup-minikube@latest
 
-      - name: Deploy the application
+      - name: Deploy and test the application
         run: |
               kubectl apply -f deployment.yaml -f service.yaml -f ingress.yaml
               kubectl wait --for=condition=ready pod -l app=wisecow
@@ -35,4 +35,3 @@ jobs:
               minikube service wisecow-service --url
               echo "------------------opening the service------------------"
               curl $(minikube service wisecow-service --url)
-              |
