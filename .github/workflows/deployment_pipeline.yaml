@@ -26,11 +26,8 @@ jobs:
 
       - name: Setup Minikube
         uses: medyagh/setup-minikube@latest
-        with:
-          minikube version: v1.33.1
-          kubernetes version: v1.25.5
 
-      - name: Deploy the application (replace with your deployment manifest)
+      - name: Deploy the application
         run: |
               kubectl apply -f deployment.yaml -f service.yaml -f ingress.yaml
               curl -vvv http://localhost:4499
