@@ -2,9 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: wisecow-app-ingress
-  spec:
-    ingressClassName: "nginx"
 spec:
+ingressClassName: "nginx"
   tls:
   - hosts:
     - wisecow.local
