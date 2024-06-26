@@ -30,5 +30,8 @@ jobs:
       - name: Deploy the application
         run: |
               kubectl apply -f deployment.yaml -f service.yaml -f ingress.yaml
-              curl -vvv http://localhost:4499
+              minikube service list
+              minikube service wisecow-service --url
+              echo "------------------opening the service------------------"
+              curl $(minikube service wisecow-service --url)
               |
