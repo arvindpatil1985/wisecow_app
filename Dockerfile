@@ -17,6 +17,10 @@ RUN chmod +x ./wisecow.sh
 
 ENV PATH=$PATH:/usr/games
 
+RUN useradd guest
+RUN chown guest:guest /app
+USER guest
+
 # Command to run the application
 ENTRYPOINT ["./wisecow.sh"]
 
